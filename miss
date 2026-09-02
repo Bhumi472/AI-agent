@@ -1,0 +1,19 @@
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
+
+data = {
+    "Age": [20, 21, None, 24, 25],
+    "Marks": [80, 90, 75, None, 95],
+    "Gender": ["Male", "Female", "Male", "Female", "Male"]
+}
+
+df = pd.DataFrame(data)
+
+df["Age"] = df["Age"].fillna(df["Age"].mean())
+df["Marks"] = df["Marks"].fillna(df["Marks"].mean())
+df["Gender"] = df["Gender"].map({"Male": 0, "Female": 1})
+
+scaler = MinMaxScaler()
+df[["Age", "Marks"]] = scaler.fit_transform(df[["Age", "Marks"]])
+
+print(df)
