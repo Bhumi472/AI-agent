@@ -1,3 +1,5 @@
+#!pip install torch diffusers transformers accelerate
+
 import torch
 from diffusers import StableDiffusionPipeline
 
