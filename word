@@ -1,0 +1,23 @@
+from gensim.models import Word2Vec
+
+sentences = [
+    ["artificial", "intelligence", "is", "powerful"],
+    ["machine", "learning", "is", "useful"],
+    ["deep", "learning", "uses", "neural", "networks"],
+    ["artificial", "intelligence", "uses", "machine", "learning"],
+    ["neural", "networks", "are", "used", "in", "deep", "learning"]
+]
+
+model = Word2Vec(
+    sentences,
+    vector_size=100,
+    window=3,
+    min_count=1,
+    workers=4
+)
+
+print("Vector of learning:")
+print(model.wv["learning"])
+
+print("\nSimilar words:")
+print(model.wv.most_similar("learning", topn=3))
