@@ -1,0 +1,15 @@
+import torch
+from diffusers import StableDiffusionPipeline
+
+model = StableDiffusionPipeline.from_pretrained(
+    "runwayml/stable-diffusion-v1-5"
+)
+
+model = model.to("cpu")
+
+prompt = "A futuristic city with flying cars at night"
+
+image = model(prompt).images[0]
+
+image.show()
+display(image)
