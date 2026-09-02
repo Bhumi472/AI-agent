@@ -1,0 +1,30 @@
+import tensorflow as tf
+
+# Create tensors
+a = tf.constant([[1, 2], [3, 4]])
+b = tf.constant([[5, 6], [7, 8]])
+
+print("Addition:")
+print(tf.add(a, b))
+
+print("Subtraction:")
+print(tf.subtract(a, b))
+
+print("Element-wise Multiplication:")
+print(tf.multiply(a, b))
+
+print("Matrix Multiplication:")
+print(tf.matmul(a, b))
+
+@tf.function
+def calculation(x, y):
+    return x + y
+
+print("Computation Graph:")
+print(calculation(a, b))
+
+x = tf.constant(10)
+y = tf.constant(20)
+
+print("Eager Execution:")
+print((x + y).numpy())
