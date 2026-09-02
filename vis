@@ -1,0 +1,26 @@
+# 3. Data Visualization
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load dataset
+df = sns.load_dataset("iris")
+
+# 1. Histogram
+plt.hist(df["sepal_length"])
+plt.xlabel("Sepal Length")
+plt.ylabel("Frequency")
+plt.title("Histogram of Sepal Length")
+plt.show()
+
+# 2. Scatter Plot
+plt.scatter(df["sepal_length"], df["petal_length"])
+plt.xlabel("Sepal Length")
+plt.ylabel("Petal Length")
+plt.title("Sepal Length vs Petal Length")
+plt.show()
+
+# 3. Correlation Heatmap
+sns.heatmap(df.corr(numeric_only=True), annot=True)
+plt.title("Correlation Heatmap")
+plt.show()
